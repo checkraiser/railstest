@@ -7,10 +7,15 @@ gem 'rails', '4.0.0'
 group :development, :test do
 	gem 'rspec-rails','2.13.1'
 	gem 'sqlite3'
+	gem 'guard-rspec'
+	gem 'spork-rails'
+	gem 'guard-spork'
+	gem 'childprocess'
 end
 group :test do
 	gem 'selenium-webdriver', '2.35.1'
 	gem 'capybara', '2.1.0'
+	gem 'growl'
 end
 group :production do
 	gem 'pg', '0.15.1'
