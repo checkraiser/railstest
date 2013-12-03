@@ -11,6 +11,8 @@ group :development, :test do
 	gem 'spork-rails'
 	gem 'guard-spork'
 	gem 'childprocess'
+	gem "teaspoon"
+	gem "guard-teaspoon"
 end
 group :test do
 	gem 'selenium-webdriver', '2.35.1'
