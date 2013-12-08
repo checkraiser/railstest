@@ -1,10 +1,12 @@
 SampleApp::Application.routes.draw do
+  devise_for :users
   get "static_pages/home"
   get "static_pages/help"
   get "static_pages/about" 
   get "/tasks" => 'task#index', :as => :tasks
   get "/tasks/test" => 'task#test' , :as => :taskstest
   root  "home#index"
+  get 'events' => 'home#index', :as => :user_root
    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
