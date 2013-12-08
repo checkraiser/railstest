@@ -1,0 +1,28 @@
+require 'spec_helper'
+
+describe User do
+  #pending "add some examples to (or delete) #{__FILE__}"
+  describe "the 'Name' attribute" do 
+    before(:each) do 
+      @user = FactoryGirl.build(:user)
+    end
+    it "should have a 'name' attribute" do 
+    	@user.should respond_to(:name)
+    	@user.should respond_to(:name=)
+    end
+
+    it "should be unique" do 
+      @user.save
+      user2 = FactoryGirl.build(:user, :email => 'diff@example.com')
+
+      user2.valid?.should be_false
+      user2.errors[:name].should include("has already been taken")
+    end
+
+    it "should be required" do 
+      @user.name = nil
+      @user.should be_invalid
+      @user.errors[:name].should include("can't be blank")
+    end
+  end
+end
