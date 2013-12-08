@@ -1,4 +1,5 @@
 SampleApp::Application.routes.draw do
+  resources :events
   devise_for :users
   get "static_pages/home"
   get "static_pages/help"

@@ -1,0 +1,37 @@
+<div id="sign_in" class="sixteen columns">
+	<span>
+		<% if user_signed_in? %>
+			<%= "Hello #{current_user.name} " %>
+			<%= link_to "My Events", user_root_path %>
+			<%= link_to "Sign Out", destroy_user_session_path %>
+		<% else %>
+			<%= link_to "Sign In", new_user_session_path %>
+		<% end %>
+	</span>
+</div>
+
+<h2>Your Events</h2>
+<ul id="events">
+	<% if @events.count > 0 %>
+	<% for event in @events %>
+		<li class="<%= @event == event ? :selected : nil %>">
+			<span class="del_form">
+				<%= button_to "X", event, :confirm => "Are you sure?", :method => :delete %>
+			</span>
+			<span class="event_name">
+				<%= link_to event.name, edit_event_path(event) %>
+			</span>
+			<span class="event_description"><%= event.description %></span>
+			<div class="clear" />
+		</li>
+	<% end %>
+	<% end %>
+</ul>
+
+<%= form_for @event || Event.new do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+	<%= f.submit %>
+<% end %>
