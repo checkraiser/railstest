@@ -7,5 +7,6 @@
 //= require_tree ./models
 
 window.TodoList = {
-  Models: {}
+  Models: {},
+  Collections: {}
 };

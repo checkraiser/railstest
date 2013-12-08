@@ -12,7 +12,7 @@ describe "Tasks" do
     it "support js", :js => true do 
     	visit "/tasks"
     	click_link "test js"
-    	page.should have_content("ok")
+    	page.should have_content("ok from backbone")
     end
   end
 end

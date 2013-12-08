@@ -15,4 +15,3 @@
 //= require turbolinks
 //= require todo_list
 //= require_tree .
-//= require_tree ./models
